@@ -164,18 +164,18 @@ int main(int argc, char* argv[])
 	GLuint renderTextureId;
 	glGenTextures(1, &renderTextureId);
 	
-    glBindTexture(GL_TEXTURE_2D, renderTextureId);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, WINDOW_WIDTH, WINDOW_HEIGHT, 0, GL_RGBA, GL_FLOAT, NULL);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glBindTexture(GL_TEXTURE_2D, renderTextureId);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, WINDOW_WIDTH, WINDOW_HEIGHT, 0, GL_RGBA, GL_FLOAT, NULL);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
-    glBindFramebuffer(GL_FRAMEBUFFER, fboId);
-    glBindTexture(GL_TEXTURE_2D, renderTextureId);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, renderTextureId, 0);
-    
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, fboId);
+	glBindTexture(GL_TEXTURE_2D, renderTextureId);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, renderTextureId, 0);
+	
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	
 	int keepRunning = 1;
 	while (keepRunning)
@@ -255,9 +255,9 @@ void checkProgram(GLuint programId)
 
 	if (!result)
 	{
-	    GLint infoLogLength;
-	    glGetProgramiv(programId, GL_INFO_LOG_LENGTH, &infoLogLength);
-	    GLchar* message = alloca(infoLogLength * sizeof(GLchar));
+		GLint infoLogLength;
+		glGetProgramiv(programId, GL_INFO_LOG_LENGTH, &infoLogLength);
+		GLchar* message = alloca(infoLogLength * sizeof(GLchar));
 		glGetProgramInfoLog(programId, infoLogLength, NULL, message);
 		fprintf(stderr, "Warning: %s\n", message);
 	}
@@ -279,8 +279,8 @@ void checkShader(GLuint shaderId)
 
 	if (!result)
 	{
-	    GLint infoLogLength;
-	    glGetShaderiv(shaderId, GL_INFO_LOG_LENGTH, &infoLogLength);
+		GLint infoLogLength;
+		glGetShaderiv(shaderId, GL_INFO_LOG_LENGTH, &infoLogLength);
 		GLchar* message = alloca(infoLogLength * sizeof(GLchar));
 		glGetShaderInfoLog(shaderId, infoLogLength, NULL, message);
 		fprintf(stderr, "Warning: %s\n", message);
