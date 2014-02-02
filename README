@@ -1,0 +1,7 @@
+Trying to make the most accurate FBO example code with OpenGL in ANSI C
+Requires GLEW and SDL2
+
+how to compile:
+	
+gcc main.c -o testfbo -lGLEW -lGL -lSDL2 -ansi -Wall -Werror
+
