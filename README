@@ -1,7 +1,5 @@
-Trying to make the most accurate FBO example code with OpenGL in ANSI C
+An OpenGL Frame Buffer Object example code.
 Requires GLEW and SDL2
 
 how to compile:
-	
-gcc main.c -o testfbo -lGLEW -lGL -lSDL2 -ansi -Wall -Werror
-
+gcc main.c -o testfbo -lGL -lGLEW -lSDL2 -ansi -Wall -Werror
